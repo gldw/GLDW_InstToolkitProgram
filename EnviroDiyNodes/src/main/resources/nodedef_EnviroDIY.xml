@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<nodedefs>
+<nodedef name="MayflyControlService" class="vdab.extnodes.envirodiy.MayflyControlService">
+	<attr name="Group">Data</attr>
+	<attr name="ConsumedEventTypes">Event</attr>
+    <attr name="PublishedEventTypes">Event</attr>
+    <attr name="NodeOverview">Configures and controls a Mayfly Data Logger.</attr>   
+    <attr name="NodeDescTemplate">Control Mayfly</attr>
+	<attr name="NodeQuality" >Beta</attr>  
+	<datadef name="DataHubType">
+		<attr name="RefreshOnChange" type="Boolean">true</attr>
+		<attr name="EditOrder" type="Integer">19</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Enum">DataHubType</attr>
+		<attr name="Desc">The type of data hub that will receive the sensor data.</attr>		
+	</datadef>
+	<datadef name="MayflyLocation">
+		<attr name="RefreshOnChange" type="Boolean">true</attr>
+		<attr name="EditOrder" type="Integer">20</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">The location of the mayfly. For ip communication this should be the IP and Port. </attr>		
+	</datadef>
+	<datadef name="Token">
+		<attr name="EditOrder" type="Integer">21</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">This is the registration token for the monitoring site.</attr>		
+	</datadef>
+	<datadef name="SamplingFeature">
+		<attr name="EditOrder" type="Integer">22</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">This is the universally unique identifier provided for this monitoring site.</attr>		
+	</datadef>
+	<datadef name="EnabledSensors">
+		<attr name="EditOrder" type="Integer">23</attr>
+		<attr name="RefreshOnChange" type="Boolean">true</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Enum">MayflySensorType</attr>
+		<attr name="Desc">The sensor data that should be sent. Pick one or more sensors from the drop down list.</attr>		
+	</datadef>
+	<datadef name="DataIDs">
+		<attr name="EditOrder" type="Integer">24</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">The data identifiers corresponding to the selected sensors.</attr>		
+	</datadef>
+    <datadef name="SelectedElement">
+        <attr name="Category">Hidden</attr>
+    </datadef>
+	<datadef name="OutputType">
+        <attr name="Category">Hidden</attr>
+    </datadef>
+</nodedef>
+<nodedef name="MayflyParseFunction" class="vdab.extnodes.envirodiy.MayflyParseFunction">
+	<attr name="Group">Data</attr>
+	<attr name="ConsumedEventTypes">Event</attr>
+    <attr name="PublishedEventTypes">Event</attr>
+    <attr name="NodeOverview">Takes data received from a Mayfly and parses into a standard VDAB event.</attr>   
+    <attr name="NodeDescTemplate">Parse Mayfly Data</attr>
+	<attr name="NodeQuality" >Beta</attr>  
+	<datadef name="Token">
+		<attr name="EditOrder" type="Integer">21</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">This is the registration token for the monitoring site.</attr>		
+	</datadef>
+	<datadef name="SamplingFeature">
+		<attr name="EditOrder" type="Integer">22</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">This is the universally unique identifier provided for this monitoring site.</attr>		
+	</datadef>
+	<datadef name="SelectedElement">
+        <attr name="Category">Required</attr>
+        <attr name="EditOrder" type="Integer">23</attr>
+        <attr name="Desc">Select the data to be sent </attr>
+    </datadef>
+ 	<datadef name="OutputType">
+        <attr name="Category">Hidden</attr>
+    </datadef>
+</nodedef>
+<nodedef name="MyWatershedService" class="vdab.extnodes.envirodiy.MyWatershedService">
+	<attr name="Group">Data</attr>
+	<attr name="ConsumedEventTypes">Event</attr>
+    <attr name="PublishedEventTypes">Event</attr>
+    <attr name="NodeOverview">Publishes environmental data to the Monitor My Watershed ODM2 data repository.</attr>   
+    <attr name="NodeDescTemplate">to MonitorMyWatershed</attr>
+	<attr name="NodeQuality" >Beta</attr>  
+	<datadef name="Token">
+		<attr name="EditOrder" type="Integer">21</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">This is the registration token for the monitoring site.</attr>		
+	</datadef>
+	<datadef name="SamplingFeature">
+		<attr name="EditOrder" type="Integer">22</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">This is the universally unique identifier provided for this monitoring site.</attr>		
+	</datadef>
+	<datadef name="SelectedElement">
+        <attr name="Category">Required</attr>
+        <attr name="EditOrder" type="Integer">23</attr>
+        <attr name="Desc">Select the data to be sent </attr>
+    </datadef>
+    <datadef name="DataID">
+		<attr name="EditOrder" type="Integer">24</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">The data identifier code associated with this data item.</attr>		
+	</datadef>
+	<datadef name="OutputType">
+        <attr name="Category">Hidden</attr>
+    </datadef>
+</nodedef>
+</nodedefs>
